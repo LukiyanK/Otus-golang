@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"strconv"
@@ -36,10 +37,12 @@ func main() {
 	var input string
 	var row, col int
 	fmt.Print("Задай количество строк(по умолчанию 8): ")
-	fmt.Fscan(os.Stdin, &input)
-	row = checkinput(input)
+	reader := bufio.NewReader(os.Stdin)
+	input, _ = reader.ReadString('\n')
+	row = checkinput(strings.TrimSpace(input))
 	fmt.Print("Задай количество колонок(по умолчанию 8): ")
-	fmt.Fscan(os.Stdin, &input)
-	col = checkinput(input)
+	reader = bufio.NewReader(os.Stdin)
+	input, _ = reader.ReadString('\n')
+	col = checkinput(strings.TrimSpace(input))
 	fmt.Println(chessboard(row, col))
 }
