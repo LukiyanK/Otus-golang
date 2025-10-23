@@ -35,10 +35,10 @@ func checkinput(userinput string) int {
 func main() {
 	var input string
 	var row, col int
-	fmt.Print("Задай количство строк(по умолчанию 8): ")
+	fmt.Print("Задай количество строк(по умолчанию 8): ")
 	fmt.Fscan(os.Stdin, &input)
 	row = checkinput(input)
-	fmt.Print("Задай количство колонок(по умолчанию 8): ")
+	fmt.Print("Задай количество колонок(по умолчанию 8): ")
 	fmt.Fscan(os.Stdin, &input)
 	col = checkinput(input)
 	fmt.Println(chessboard(row, col))
