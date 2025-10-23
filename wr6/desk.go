@@ -37,6 +37,9 @@ func main() {
 	var input string
 	var row, col int
 	fmt.Print("Задай количество строк(по умолчанию 8): ")
+	//пришлось усложнять обработку ввода, так как реализация fmt.Fscan(os.Stdin, &input)
+	//не позволяет обработать когда пользователь просто жмет enter
+	//программа ждет ввод какого-то значения
 	reader := bufio.NewReader(os.Stdin)
 	input, _ = reader.ReadString('\n')
 	row = checkinput(strings.TrimSpace(input))
