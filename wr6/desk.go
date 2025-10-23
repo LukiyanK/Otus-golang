@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -21,11 +22,24 @@ func chessboard(sizeX int, sizeY int) string {
 	return builder.String()
 }
 
+func checkinput(userinput string) int {
+	var tempnum int
+	tempnum, err := strconv.Atoi(userinput)
+	if err != nil {
+		fmt.Println("Ошибка ввода: будет использовано значение по умолчанию")
+		tempnum = 8
+	}
+	return tempnum
+}
+
 func main() {
+	var input string
 	var row, col int
-	fmt.Print("Задай количство строк: ")
-	fmt.Fscan(os.Stdin, &row)
-	fmt.Print("Задай количство колонок: ")
-	fmt.Fscan(os.Stdin, &col)
+	fmt.Print("Задай количство строк(по умолчанию 8): ")
+	fmt.Fscan(os.Stdin, &input)
+	row = checkinput(input)
+	fmt.Print("Задай количство колонок(по умолчанию 8): ")
+	fmt.Fscan(os.Stdin, &input)
+	col = checkinput(input)
 	fmt.Println(chessboard(row, col))
 }
